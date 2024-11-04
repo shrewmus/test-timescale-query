@@ -82,8 +82,11 @@ export class TimescaleService {
       currentDate.setMinutes(currentDate.getMinutes() + interval);
     }
     if (mockData.length) {
-      const entities = this.sensorRepository.create(mockData);
-      await this.sensorRepository.insert(entities);
+      await this.dataSource.getRepository(SensorEntity).createQueryBuilder()
+        .insert()
+        .into(SensorEntity)
+        .values(mockData)
+        .execute();
     }
   }
 }
