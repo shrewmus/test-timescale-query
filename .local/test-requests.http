@@ -1,0 +1,10 @@
+### GET tet weekly data by sensor id
+GET http://localhost:3001/timescale/weekly-averages?sensorId=2
+
+###
+
+### POST - Mock data query
+POST http://localhost:3001/timescale/mock-data
+Content-Type: application/json
+
+{}
